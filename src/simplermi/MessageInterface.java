@@ -13,7 +13,7 @@ import java.rmi.RemoteException;
 
 public interface MessageInterface extends Remote {
     
-    
+    String contact(String message) throws RemoteException;
     
     String sayHello(String name) throws RemoteException ;
 }
