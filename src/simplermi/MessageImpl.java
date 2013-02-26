@@ -12,8 +12,8 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 public class MessageImpl extends UnicastRemoteObject implements MessageInterface {
-    public String serverStore = null;
-    public String clientMessage = null;
+    public String serverStore = "DEF";
+    public String clientMessage = "DEF";
     
     
     public MessageImpl() throws RemoteException {        
