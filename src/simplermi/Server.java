@@ -4,18 +4,22 @@
  */
 package simplermi;
 
+import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 public class Server {
+    MessageImpl postman;
+    
     
     private void startServer(){
         try {
             // create on port 1099
             Registry registry = LocateRegistry.createRegistry(80);
-            
+            postman = new MessageImpl();
             // create a new service named myMessage
-            registry.rebind("myMessage", new MessageImpl());
+            registry.rebind("myMessage", postman);
+            postman.setStore("Dollar Bill!");
         } catch (Exception e) {
             e.printStackTrace();
         }      

@@ -19,9 +19,12 @@ public class Client {
 			
 			// call server's method			
             String response = impl.sayHello("edwin");
+            String response2 = impl.query("Cash?");
 			
             System.out.println("Message Sent");
             System.out.println(response);
+            
+            System.out.println(response2);
         } catch (Exception e) {
             e.printStackTrace();
         }        

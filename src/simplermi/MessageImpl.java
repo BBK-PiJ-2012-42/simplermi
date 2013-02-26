@@ -13,10 +13,23 @@ import java.rmi.server.UnicastRemoteObject;
 
 public class MessageImpl extends UnicastRemoteObject implements MessageInterface {
     public String serverStore = null;
-    public String clientStore = null;
+    public String clientMessage = null;
     
     
     public MessageImpl() throws RemoteException {        
+    }
+    
+    public void setStore(String store) {
+        serverStore = store;
+    }
+    
+    public String getMessage() {
+        return clientMessage;
+    }
+    
+    public String query(String message) {
+        clientMessage = message;
+        return serverStore;
     }
     
     @Override
@@ -27,7 +40,7 @@ public class MessageImpl extends UnicastRemoteObject implements MessageInterface
 
     @Override
     public String contact(String message) throws RemoteException {
-        this.clientStore = message;
+        this.clientMessage = message;
         return serverStore;
     }
     
